@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Pulse | Weekly AI Newsletter</title>
+
+<!--
+=========================================================
+AI PULSE NEWSLETTER TEMPLATE
+=========================================================
+
+HOW TO USE NEXT WEEK:
+
+1. Change Issue Number
+2. Change Date
+3. Replace Executive Summary
+4. Duplicate <article class="story"> for all stories
+5. Update Key Themes
+6. Update Buzzwords
+
+Everything else remains unchanged.
+
+=========================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+ROOT
+===================================================== */
+
+:root{
+    --bg:#fafafa;
+    --card:#ffffff;
+    --text:#111827;
+    --muted:#6b7280;
+    --border:#e5e7eb;
+    --accent:#2563eb;
+    --accent-light:#eff6ff;
+}
+
+/* =====================================================
+RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+}
+
+/* =====================================================
+LAYOUT
+===================================================== */
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:60px 24px 100px;
+}
+
+/* =====================================================
+HERO
+===================================================== */
+
+.hero{
+    text-align:center;
+    margin-bottom:80px;
+}
+
+.logo{
+    font-size:78px;
+    font-weight:900;
+    letter-spacing:-4px;
+    line-height:1;
+}
+
+.logo .pulse{
+    color:var(--accent);
+}
+
+.hero-line{
+    width:90px;
+    height:4px;
+    background:var(--accent);
+    margin:25px auto;
+    border-radius:999px;
+}
+
+.tagline{
+    color:var(--muted);
+    font-size:18px;
+}
+
+.issue{
+    display:inline-block;
+    margin-top:22px;
+    padding:10px 18px;
+    background:var(--accent-light);
+    color:var(--accent);
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+/* =====================================================
+EXEC SUMMARY
+===================================================== */
+
+.summary{
+    margin-bottom:80px;
+    padding-left:28px;
+    border-left:4px solid var(--accent);
+}
+
+.summary-label{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.summary p{
+    font-size:20px;
+    color:#374151;
+}
+
+/* =====================================================
+SECTION TITLE
+===================================================== */
+
+.section-title{
+    font-size:42px;
+    font-weight:800;
+    letter-spacing:-1px;
+    margin-bottom:30px;
+}
+
+/* =====================================================
+NEWS STORIES
+===================================================== */
+
+.story{
+    padding:55px 0;
+    border-top:1px solid var(--border);
+}
+
+.rank{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:14px;
+}
+
+.story-title{
+    font-size:36px;
+    line-height:1.2;
+    letter-spacing:-1px;
+    margin-bottom:22px;
+}
+
+.story p{
+    margin-bottom:18px;
+    color:#374151;
+    font-size:17px;
+}
+
+.source{
+    margin-top:22px;
+    color:var(--muted);
+    font-size:14px;
+    border-left:3px solid var(--border);
+    padding-left:12px;
+}
+
+/* =====================================================
+KEY THEMES
+===================================================== */
+
+.themes{
+    margin-top:90px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.tag{
+    padding:10px 18px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    background:white;
+    font-size:14px;
+    font-weight:500;
+}
+
+/* =====================================================
+BUZZWORDS
+===================================================== */
+
+.buzzwords{
+    margin-top:90px;
+}
+
+/* =========================================
+HORIZONTAL SCROLL BUZZWORDS
+========================================= */
+
+.grid{
+    display:flex;
+    gap:20px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    padding-bottom:10px;
+    scroll-behavior:smooth;
+
+    scrollbar-width:thin;
+    scrollbar-color:#d1d5db transparent;
+}
+
+/* Chrome / Edge */
+.grid::-webkit-scrollbar{
+    height:8px;
+}
+
+.grid::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.grid::-webkit-scrollbar-thumb{
+    background:#d1d5db;
+    border-radius:999px;
+}
+
+.word{
+    flex:0 0 320px;
+
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+
+    padding:24px;
+
+    transition:all 0.2s ease;
+}
+
+.word:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.06);
+}
+
+.word h3{
+    margin-bottom:14px;
+    font-size:20px;
+}
+
+.word p{
+    font-size:14px;
+    color:#4b5563;
+    margin-bottom:10px;
+}
+
+.label{
+    font-weight:700;
+    color:var(--text);
+}
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+.footer{
+    margin-top:100px;
+    border-top:1px solid var(--border);
+    padding-top:30px;
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+.logo{
+    font-size:56px;
+}
+
+.section-title{
+    font-size:32px;
+}
+
+.story-title{
+    font-size:28px;
+}
+
+.summary p{
+    font-size:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header class="hero">
+
+    <div class="logo">
+        AI <span class="pulse">Pulse</span>
+    </div>
+
+    <div class="hero-line"></div>
+
+    <div class="tagline">
+        Your weekly snapshot of the AI world.
+    </div>
+
+    <!-- CHANGE ISSUE NUMBER + DATE -->
+    <div class="issue">
+        Issue #001 • June 23, 2026
+    </div>
+
+</header>
+
+<!-- =====================================================
+EXECUTIVE SUMMARY
+REPLACE WEEKLY
+===================================================== -->
+
+<section class="summary">
+
+    <div class="summary-label">
+        Executive Summary (30 Seconds)
+    </div>
+
+    <p>
+        This week's AI developments show the industry moving from experimentation to infrastructure. AI sovereignty is becoming a strategic concern, reasoning models are demonstrating measurable value in healthcare, and enterprises are increasingly adopting multiple AI providers instead of relying on a single vendor. At the same time, AI governance, model evaluation, and open-weight models are becoming central themes.
+    </p>
+
+</section>
+
+<!-- =====================================================
+TOP STORIES
+===================================================== -->
+
+<h1 class="section-title">
+    Top 10 AI Stories This Week
+</h1>
+
+<!-- =====================================================
+STORY TEMPLATE
+DUPLICATE THIS BLOCK FOR ALL STORIES
+===================================================== -->
+
+<article class="story">
+
+    <div class="rank">
+        Rank #1
+    </div>
+    <h2 class="story-title">
+        AI Sovereignty Becomes a Strategic Issue
+    </h2>
+    <p>
+        The conversation around AI sovereignty gained momentum this week as governments and companies debated access to advanced AI models. Recent restrictions on some frontier AI systems and ongoing export controls have highlighted a growing concern: what happens when critical AI capabilities are controlled by a handful of companies or countries?
+    </p>
+    <p>
+        AI sovereignty refers to a country's or organization's ability to maintain reliable access to advanced AI technologies without depending entirely on external providers. As AI becomes part of economic infrastructure, many governments are investing in domestic AI capabilities and open-weight alternatives.
+    </p>
+    <p>
+        The broader impact extends beyond technology. Access to AI is increasingly becoming a matter of economic competitiveness, national security, and long-term resilience.
+    </p>
+    <div class="source">
+        Source: Reuters report on G7 discussions regarding access to advanced AI models
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #2
+    </div>
+    <h2 class="story-title">
+        Google DeepMind's AlphaFold Leader Joins Anthropic
+    </h2>
+    <p>
+        John Jumper, one of the creators of AlphaFold and a Nobel Prize winner in Chemistry, announced that he is leaving Google DeepMind to join Anthropic.
+    </p>
+    <p>
+        AlphaFold transformed biology by accurately predicting protein structures, solving a challenge that had frustrated scientists for decades. Jumper's move is being viewed as one of the most significant talent shifts in AI this year.
+    </p>
+    <p>
+        The story matters because the AI race is increasingly becoming a competition for elite researchers. Companies are no longer competing only on models and infrastructure; they are competing for the scientists capable of driving the next generation of breakthroughs in medicine, science, and advanced AI systems.
+    </p>
+    <div class="source">
+        Source: Anthropic Official Website
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #3
+    </div>
+    <h2 class="story-title">
+        AI Coding Agents Create New Governance Challenges
+    </h2>
+    <p>
+        AI-generated code now represents a growing share of software development work across many organizations. As companies adopt multiple coding agents, a new challenge is emerging: ensuring that AI-generated software follows consistent standards and security practices.
+    </p>
+    <p>
+        Different AI systems may interpret requirements differently, introduce inconsistent coding patterns, or create hidden security risks. As a result, businesses are increasingly focusing on AI governance—the policies and controls that ensure AI outputs remain reliable and aligned with organizational objectives.
+    </p>
+    <p>
+        This highlights a major shift in enterprise AI adoption. The challenge is no longer getting AI to perform tasks, but managing and supervising AI systems at scale.
+    </p>
+    <div class="source">
+        Source: IBM Developer – Project-Level Rules for AI-Assisted Development
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #4
+    </div>
+    <h2 class="story-title">
+        Claude Fable 5 Sparks Debate About AI Benchmarks
+    </h2>
+    <p>
+        Anthropic's Claude Fable 5 achieved impressive benchmark results, but researchers questioned whether benchmark scores accurately represent the model that users actually interact with.
+    </p>
+    <p>
+        The debate centers on AI evaluation. Some researchers argue that benchmarks often measure a model's maximum capabilities under ideal conditions, while real users experience additional safety controls, restrictions, and routing mechanisms.
+    </p>
+    <p>
+        As AI systems become more powerful, evaluating them accurately is becoming increasingly important. Businesses, researchers, and policymakers need reliable ways to understand what models can actually do in real-world environments, not just in controlled testing scenarios.
+    </p>
+    <div class="source">
+        Source: Anthropic Claude Fable 5 release documentation
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #5
+    </div>
+    <h2 class="story-title">
+        New Benchmarks Aim to Measure Real AI Agents
+    </h2>
+    <p>
+        Researchers introduced a new generation of AI benchmarks, including DeepSWE, ProgramBench, and ITBench-AA, designed to evaluate whether AI agents can complete realistic tasks.
+    </p>
+    <p>
+        Unlike traditional benchmarks that focus on answering questions, these tests examine whether agents can perform practical work such as developing software, implementing features, and troubleshooting systems.
+    </p>
+    <p>
+        The shift reflects a broader industry trend. As AI agents become more capable, organizations need better methods to measure practical performance, reliability, and business value.
+    </p>
+    <div class="source">
+        Source: DeepLearning.AI analysis of AI-agent benchmarks
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #6
+    </div>
+    <h2 class="story-title">
+        Enterprise Adoption Is Shifting Toward Anthropic and Google
+    </h2>
+    <p>
+        New enterprise telemetry data from Datadog indicates that adoption of Anthropic's Claude models and Google's Gemini models is accelerating among organizations using large language models.
+    </p>
+    <p>
+        The findings suggest that businesses are increasingly adopting multiple AI providers rather than relying on a single vendor. Companies are evaluating models based on reliability, cost, multimodal capabilities, and task-specific performance.
+    </p>
+    <p>
+        This signals a maturing AI market. Instead of searching for one "best" model, organizations are building flexible AI stacks that can use different models for different purposes.
+    </p>
+    <div class="source">
+        Source: Datadog State of AI Engineering Report
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #7
+    </div>
+    <h2 class="story-title">
+        Open-Weight Models Continue Closing the Gap
+    </h2>
+    <p>
+        The release of GLM-5.2 from Z.ai highlights the continued progress of open-weight AI models. Open-weight models make their parameters publicly available, allowing organizations and researchers to customize and deploy them independently.
+    </p>
+    <p>
+        While proprietary models from OpenAI, Anthropic, and Google remain leaders in many benchmarks, open alternatives are improving rapidly.
+    </p>
+    <p>
+        This trend is important because it lowers barriers to innovation, reduces dependence on a small number of providers, and gives organizations more control over privacy, security, and customization.
+    </p>
+    <div class="source">
+        Source: Z.ai Official Website
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #8
+    </div>
+    <h2 class="story-title">
+        Nvidia Launches Nemotron 3 Ultra
+    </h2>
+    <p>
+        Nvidia introduced Nemotron 3 Ultra, a new open-weight model designed for AI agents and long-running tasks. The model supports context windows of up to one million tokens, allowing it to process and reason over significantly larger amounts of information.
+    </p>
+    <p>
+        The release strengthens Nvidia's role beyond AI hardware. The company is increasingly becoming a contributor to AI software, models, and developer tools.
+    </p>
+    <p>
+        As AI agents become more common, infrastructure designed specifically for autonomous workflows may become an important competitive advantage.
+    </p>
+    <div class="source">
+        Source: NVIDIA Official Announcement
+    </div>
+</article>
+
+<article class="story">
+    <div class="rank">
+        Rank #9
+    </div>
+    <h2 class="story-title">
+        AI Is Moving Beyond Screens Into New Interfaces
+    </h2>
+    <p>
+        John Jumper, one of the creators of AlphaFold and a Nobel Prize winner in Chemistry, announced that he is leaving Google DeepMind to join Anthropic.Snap's launch of its new AI-powered augmented reality glasses, called Specs, highlights how AI is increasingly being integrated into physical devices rather than remaining confined to phones and computers.
+    </p>
+    <p>
+        The glasses combine AI capabilities with digital overlays that appear directly in the user's field of view. AI can understand what the wearer is looking at and provide contextual information, navigation, translation, and assistance in real time.
+    </p>
+    <p>
+        Although still early and expensive, AI-powered wearables may represent one of the first major attempts to create a computing platform beyond smartphones.
+    </p>
+    <div class="source">
+        Source: Snap Newsroom – Introducing SPECS Augmented Reality Glasses
+    </div>
+</article>
+
+<!--
+COPY THE ABOVE ARTICLE
+CHANGE:
+Rank #
+Headline
+Paragraphs
+Source
+
+Repeat until Rank #10
+-->
+
+<!-- =====================================================
+KEY THEMES
+===================================================== -->
+
+<section class="themes">
+
+    <h2 class="section-title">
+        Key Themes This Week
+    </h2>
+
+    <div class="tags">
+
+        <div class="tag">AI Sovereignty</div>
+        <div class="tag">AI Governance</div>
+        <div class="tag">Reasoning Models</div>
+        <div class="tag">AI Agents</div>
+        <div class="tag">Open-Weight Models</div>
+        <div class="tag">Enterprise Adoption</div>
+        <div class="tag">AI Infrastructure</div>
+        <div class="tag">Model Evaluation</div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+AI BUZZWORDS
+===================================================== -->
+
+<section class="buzzwords">
+
+    <h2 class="section-title">
+        AI Buzzwords of the Week
+    </h2>
+
+    <div class="grid">
+
+        <div class="word">
+
+            <h3>AI Sovereignty</h3>
+
+            <p>
+                <span class="label">Definition:</span>
+                Ability to maintain independent access to AI technologies.
+            </p>
+
+            <p>
+                <span class="label">Why it matters:</span>
+                Reduces dependency on external providers.
+            </p>
+
+            <p>
+                <span class="label">Example:</span>
+                Access restrictions to advanced AI models.
+            </p>
+
+        </div>
+
+        <div class="word">
+
+            <h3>Reasoning Model</h3>
+
+            <p>
+                <span class="label">Definition:</span>
+                AI that solves problems through structured steps.
+            </p>
+
+            <p>
+                <span class="label">Why it matters:</span>
+                Better performance on complex tasks.
+            </p>
+
+            <p>
+                <span class="label">Example:</span>
+                OpenAI o3 healthcare research.
+            </p>
+
+        </div>
+
+        <!-- COPY MORE BUZZWORD CARDS HERE -->
+        <div class="word">
+
+            <h3>AI Agent</h3>
+
+            <p>
+                <span class="label">Definition:</span>
+                An AI system capable of performing multi-step tasks with limited human supervision.
+            </p>
+
+            <p>
+                <span class="label">Why it matters:</span>
+                Represents the next stage of AI automation.
+            </p>
+
+            <p>
+                <span class="label">Example:</span>
+                New agent-focused benchmarks such as DeepSWE.
+            </p>
+
+        </div>
+
+        <div class="word">
+
+            <h3>Benchmark</h3>
+
+            <p>
+                <span class="label">Definition:</span>
+                A standardized test used to evaluate AI performance.
+            </p>
+
+            <p>
+                <span class="label">Why it matters:</span>
+                Helps compare models objectively.
+            </p>
+
+            <p>
+                <span class="label">Example:</span>
+                Debate surrounding Claude Fable 5 benchmark scores.
+            </p>
+
+        </div>
+
+        <div class="word">
+            <h3>Open-Weight Model</h3>
+            <p>
+                <span class="label">Definition:</span>
+                A model whose parameters are publicly available.
+            </p>
+            <p>
+                <span class="label">Why it matters:</span>
+                Allows organizations to customize and deploy AI independently.
+            </p>
+            <p>
+                <span class="label">Example:</span>
+                GLM-5.2 and Nemotron 3 Ultra.
+            </p>
+        </div>
+
+        <div class="word">
+            <h3>Multimodal AI</h3>
+            <p>
+                <span class="label">Definition:</span>
+                AI that can process multiple types of information such as text, images, and audio.
+            </p>
+            <p>
+                <span class="label">Why it matters:</span>
+                Enables richer and more flexible applications.
+            </p>
+            <p>
+                <span class="label">Example:</span>
+                Enterprise adoption trends highlighted by Datadog.
+            </p>
+        </div>
+
+        <div class="word">
+            <h3>AI Governance</h3>
+            <p>
+                <span class="label">Definition:</span>
+                Policies and controls that ensure AI is used responsibly.
+            </p>
+            <p>
+                <span class="label">Why it matters:</span>
+                Helps organizations manage reliability, compliance, and risk.
+            </p>
+            <p>
+                <span class="label">Example:</span>
+                Governance challenges associated with AI coding agents.
+            </p>
+        </div>
+
+        <div class="word">
+            <h3>Context Window</h3>
+            <p>
+                <span class="label">Definition:</span>
+                The amount of information an AI model can consider at one time.
+            </p>
+            <p>
+                <span class="label">Why it matters:</span>
+                Larger context windows enable more complex reasoning.
+            </p>
+            <p>
+                <span class="label">Example:</span>
+                Nemotron 3 Ultra's one-million-token context window.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <strong>AI Pulse</strong><br>
+    Weekly Intelligence on Artificial Intelligence<br><br>
+
+    Issue #001 • June 23, 2026
+
+</footer>
+
+
+</div>
+
+</body>
+</html>
